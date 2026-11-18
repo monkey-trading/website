@@ -62,8 +62,10 @@ current action.
 - **agents/** — this index, `rules/`, and `skills/`; root `AGENTS.md` / `CLAUDE.md` symlink to
   `agents/AGENTS.md`. The gitignored `agents/.processes/` holds local runs — reviews, plans, and dev
   runs — and, in the main checkout, each PR branch's fix notes.
-- **README.md** — the public introduction: what the site is, how to run it, and how it deploys.
-  Keep its commands and deployment notes in step with `package.json` and `siteUrl()`.
+- **README.md** — the public introduction, written by
+  [readme-writing](skills/readme-writing/SKILL.md): what the site is, what the page shows, how to
+  run, build and deploy it, and how to contribute. Keep its commands and deployment notes in step
+  with `package.json` and `siteUrl()`.
 - **LICENSE** — Apache License 2.0.
 
 ## Commands
@@ -124,7 +126,8 @@ self-review, opening the PR, and reviewing — not only at the end.
 
 **Public copy.** Before writing text a visitor or a crawler reads — the page, metadata, image and
 alt text, the README — load [writing-style](rules/writing-style.md) and the Public copy section of
-[development-checklist](rules/development-checklist.md), even when no code changes.
+[development-checklist](rules/development-checklist.md), even when no code changes. Before writing
+or editing a README, also load [readme-writing](skills/readme-writing/SKILL.md).
 
 ### Rules
 
@@ -157,3 +160,4 @@ skills: section 16 of [development-checklist](rules/development-checklist.md) fo
 - [skills/agent-review-pr/SKILL.md](skills/agent-review-pr/SKILL.md) — review or re-review a GitHub PR via `agent-code-review` (multi-agent on request) and post its in-scope findings — Low confidence rechecked or dropped, points already in the discussion skipped or added as replies — as a PENDING review only after a yes to "Push the draft comments?"; a re-review runs the same flow and also rechecks your earlier threads; never submits; load for "review PR" / "draft review" / "review the PR but don't submit" / "re-check my review".
 - [skills/agent-address-pr-comments/SKILL.md](skills/agent-address-pr-comments/SKILL.md) — answer a PR's open threads and actionable comments: verify, agree the triage with the user, fix what is true and in scope, update the PR description, and post the approved replies as one `COMMENT` review; never approves, requests changes, or resolves; load for "address the PR comments" / "address review feedback" / "reply to the review".
 - [skills/agent-create-worktree/SKILL.md](skills/agent-create-worktree/SKILL.md) — create a worktree under the sibling `web-worktrees/`, named after the branch, clearing a new branch's leftover fix notes; detached at the head SHA to review a PR; load for "create a worktree" / "spin up a working tree".
+- [skills/readme-writing/SKILL.md](skills/readme-writing/SKILL.md) — write or edit any README, modelled on go-ethereum's: one line of identity, status, how it works today, getting it, running it case by case with commands run from a fresh clone, deploying, contributing and licence; directory READMEs of 40–150 lines with a module table, never a file inventory; complete formal sentences with context first and one condition per clause; no history, accretion, issue numbers, project process or unbacked claims; load before writing or editing any README.
