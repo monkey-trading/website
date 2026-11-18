@@ -318,7 +318,9 @@ Vercel.
 ## 17. Docs and indexes
 
 - Are the nearest `AGENTS.md` and the README updated for changed commands, paths, environment
-  variables, or behavior ([keep-agents-index-in-sync](keep-agents-index-in-sync.md))?
+  variables, or behavior ([keep-agents-index-in-sync](keep-agents-index-in-sync.md))? A README
+  passage is rewritten to describe the site as it is, never extended with a sentence describing the
+  change, by [readme-writing](../skills/readme-writing/SKILL.md).
 
 ## 18. Workspace rules
 

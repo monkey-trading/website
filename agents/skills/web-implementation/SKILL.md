@@ -466,12 +466,11 @@ change. Keep each new file's import grouping.
 
 ## README
 
-The root `README.md` is the public introduction, in prose: what the site is and shows, how to run
-it locally (Node.js from `.nvmrc`, `npm ci`, `npm run dev`, and the checks CI runs), how it deploys
-and which environment variables it reads, and a `## License` section with the single line:
-Licensed under the Apache License, Version 2.0; see `LICENSE`. It follows the public-copy rules,
-so it says nothing about internal build management. Keep its commands in step with `package.json`
-and its deployment notes with `siteUrl()`.
+Write and edit the root `README.md` by [readme-writing](../readme-writing/SKILL.md): what the site
+is and shows, how to run it locally (Node.js from `.nvmrc`, `npm ci`, `npm run dev`, and the checks
+CI runs), how it deploys and which environment variables it reads, and its licence. It follows the
+public-copy rules, so it says nothing about internal build management. Keep its commands in step
+with `package.json` and its deployment notes with `siteUrl()`.
 
 ## Build configuration
 
