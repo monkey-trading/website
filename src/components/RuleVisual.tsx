@@ -30,7 +30,7 @@ function Diagram({ kind }: { kind: RuleKind }) {
       <path d="M15 62h290" stroke="var(--color-line-2)" />
       <path d="M15 56h70V44h70V30h70V15h70" fill="none" stroke="var(--color-glow)" strokeWidth="2" />
       <text x="16" y="80">Ordinary size</text><text x="304" y="80" textAnchor="end">Larger / stressed risk</text>
-      <text x="21" y="20">Spread adjustment</text>
+      <text x="21" y="20">Spread</text>
     </>;
     case "profit": return <>
       <text x="160" y="14" textAnchor="middle">REALISED GAIN</text>
