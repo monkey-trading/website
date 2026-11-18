@@ -43,11 +43,16 @@ current action.
 - **scripts/** — `check-docs.py`, run by CI's `docs` job: every relative Markdown link under
   `agents/` and in the root `*.md` files resolves to a file or directory in the repository, and the
   root `AGENTS.md` and `CLAUDE.md` are symlinks to `agents/AGENTS.md`; its test is
-  `check-docs.test.py`.
+  `check-docs.test.py`. `check-audit.mjs`, run by CI's `audit` job: `npm audit` fails it on every
+  high or critical advisory except those an unexpired entry of `audit-exceptions.json` (GHSA id,
+  reason, expiry date, tracking issue) names, an entry covering a package only when every high or
+  critical advisory reaching it through `via` is excepted, and an expired entry failing the job
+  naming it; its test is `check-audit.test.mjs`.
 - **.github/workflows/** — `ci.yaml`, on every push to `main` and every PR: the `workflows` job
   lints the workflows with actionlint, which also runs shellcheck over each `run:` script; the
-  `docs` job runs `scripts/check-docs.test.py`, then `scripts/check-docs.py`; and the `lint`,
-  `typecheck`, `test`, `build`, and `audit` jobs run the site's checks after `npm ci`. Actions are
+  `docs` job runs `scripts/check-docs.test.py`, then `scripts/check-docs.py`; the `lint`,
+  `typecheck`, `test`, and `build` jobs run the site's checks after `npm ci`; and the `audit` job
+  runs `scripts/check-audit.test.mjs`, then `scripts/check-audit.mjs` against the lockfile. Actions are
   pinned by commit SHA. `ci-passed` is the one CI check branch rules require: it passes only when
   every other job succeeded, so each new job must be added to its `needs`.
 - **.nvmrc** — the Node.js version (24) for local runs and CI.
@@ -76,7 +81,8 @@ Run from the repo root, with Node.js from `.nvmrc` and npm, and Python 3 for the
 - Security headers of the production build: `curl -sI http://localhost:<port>/` on the port the
   `npm start` log reports
 - Client bundle analysis: `npx next analyze --output` (writes `.next/diagnostics/analyze`)
-- Supply chain: `npm audit --audit-level=high`
+- Supply chain: `node scripts/check-audit.mjs` (`npm audit` less the unexpired entries of
+  `scripts/audit-exceptions.json`); its test: `node --test scripts/check-audit.test.mjs`
 - Docs check: `python3 scripts/check-docs.py`; its test: `python3 scripts/check-docs.test.py`
 - Workflow lint: `actionlint`, at the version `.github/workflows/ci.yaml` pins
 
